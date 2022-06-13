@@ -5,7 +5,12 @@
             "Configurations": "تنظیمات",
             "System": "سامانه",
             "Entity Types": "نوع موجودها",
-            "Entities": "موجودها"
+            "Entities": "موجودها",
+            "System Configs": "تنظیمات سامانه",
+            "Value": "مقدار",
+            "Create system config": "ایجاد تنظیمات برای سامانه",
+            "Config Item": "مورد تنظیماتی",
+            "You should choose configuration item": "باید مورد تنظیماتی را انتخاب کنید"
         }
     }
 ]
