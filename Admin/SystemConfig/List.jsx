@@ -9,7 +9,7 @@ import {
     post
 } from '@List';
 import { Browse } from '@Browse';
-import { Form, Browse as BrowseInput, Text } from '@Form';
+import { DialogForm, Browse as BrowseInput, Text } from '@Form';
 
 const configItemCard = (item) => {
     return <>
@@ -36,7 +36,7 @@ const inputs = <>
 </>
 
 const CreateSystemConfig = () => {
-    return <Form
+    return <DialogForm
         title="Create system config"
         entityType='systemConfig'
         inputs={inputs}
