@@ -1,6 +1,6 @@
 import {
     List,
-    Browse as BrowseFilter,
+    Browse,
     Enum as EnumFilter,
     Text as TextFilter,
     BooleanProperty,
@@ -8,40 +8,7 @@ import {
     app,
     post
 } from '@List';
-import { Browse } from '@Browse';
-import { DialogForm, Browse as BrowseInput, Text } from '@Form';
-
-const configItemCard = (item) => {
-    return <>
-        <div>{item.name}</div>
-    </>
-}
-
-const ConfigItemBrowser = () => {
-    return <Browse
-        entityType='configItem'
-        card={configItemCard}
-    />
-}
-
-const inputs = <>
-    <BrowseInput
-        column='configItemId'
-        browser={ConfigItemBrowser}
-        placeholder='Config item'
-        display={(item) => item.name}
-        choose={(item) => item.id}
-        required='You should choose configuration item'
-    />
-</>
-
-const CreateSystemConfig = () => {
-    return <DialogForm
-        title="Create system config"
-        entityType='systemConfig'
-        inputs={inputs}
-    />
-}
+import CreateSystemConfig from './Create';
 
 const filters = <>
     <TextFilter
