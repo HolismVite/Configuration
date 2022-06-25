@@ -6,35 +6,35 @@ import { Settings } from './Settings'
 
 const ConfigurationRoutes = [
     {
-        "path": "/systemConfigs",
-        "component": SystemConfigs
+        path: "/systemConfigs",
+        component: SystemConfigs
     },
     {
-        "path": "/settings",
-        "component": Settings
+        path: "/settings",
+        component: Settings
     }
 ]
 
 const ConfigurationMenu = [
     {
-        "title": "Configurations",
+        title: "Configurations",
         "icon": SettingsIcon,
-        "children": [
+        children: [
             {
-                "title": "System",
-                "url": "/systemConfigs"
+                title: "System",
+                url: "/systemConfigs"
             },
             {
-                "title": "Entity types",
-                "url": "/entityTypeConfigs"
+                title: "Entity types",
+                url: "/entityTypeConfigs"
             },
             {
-                "title": "Entities",
-                "url": "/entityConfigs"
+                title: "Entities",
+                url: "/entityConfigs"
             },
             {
-                "title": "Users",
-                "url": "/userConfigs"
+                title: "Users",
+                url: "/userConfigs"
             }
         ]
     }
