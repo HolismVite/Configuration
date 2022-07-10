@@ -1,25 +1,18 @@
 import {
     List,
-    Browse,
-    Enum as EnumFilter,
-    Text as TextFilter,
+    Text,
     BooleanProperty,
     Color,
-    app,
-    post
 } from '@List';
-import CreateSystemConfig from './Create';
+import UpsertSystemConfig from './Upsert';
+import ConfigType from '../ConfigType/Filter';
 
 const filters = <>
-    <TextFilter
+    <Text
         column='ConfigItemName'
         placeholder='Config name'
     />
-    <EnumFilter
-        column='TypeId'
-        entityType='configType'
-        placeholder='Type'
-    />
+    <ConfigType />
 </>
 
 const headers = <>
@@ -75,15 +68,16 @@ const row = (item) => {
     </>
 }
 
-const SystemConfigs = () => {
+const SystemConfigs = ({ isSuperAdmin }) => {
     return <List
         title="System Configs"
         entityType='systemConfig'
         filters={filters}
         headers={headers}
         row={row}
-        create={CreateSystemConfig}
-        hasDelete={true}
+        create={isSuperAdmin && UpsertSystemConfig}
+        hasDelete={isSuperAdmin}
+        hasEdit={true}
     />
 }
 
