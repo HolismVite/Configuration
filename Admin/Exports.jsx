@@ -9,7 +9,8 @@ import SystemConfigs from './SystemConfig/List'
 const ConfigurationRoutes = [
     {
         path: '/configItems',
-        component: ConfigItems
+        component: ConfigItems,
+        superAdmin: true
     },
     {
         path: "/systemConfigs",
@@ -40,7 +41,8 @@ const ConfigurationMenu = [
         children: [
             {
                 title: "Config Items",
-                url: "/configItems"
+                url: "/configItems",
+                superAdmin: true
             },
             {
                 title: "System",
