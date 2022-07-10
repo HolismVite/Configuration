@@ -17,7 +17,7 @@ const ConfigurationRoutes = [
         component: SystemConfigs
     },
     {
-        path: "/entityTypeConfig",
+        path: "/entityTypeConfigs",
         component: EntityTypeConfigs
     },
     {
@@ -53,7 +53,7 @@ const ConfigurationMenu = [
                 url: "/entityTypeConfigs"
             },
             {
-                title: "Entity Config Items",
+                title: "Entity items",
                 url: "/entityConfigItems"
             },
             {
