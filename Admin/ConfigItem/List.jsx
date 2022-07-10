@@ -1,18 +1,51 @@
+import ToggleOffIcon from '@mui/icons-material/ToggleOff';
+import NumbersIcon from '@mui/icons-material/Numbers';
+
 import {
     List,
-    Text
+    Text,
+    ValueWithTitle,
+    HolismIcon,
 } from '@List'
 import UpsertConfigItem from './Upsert'
 
 const headers = <>
-    <th>Key</th>
+    <th superAdmin>Key</th>
+    <th>Name</th>
     <th>Type</th>
 </>
 
-const row = (item) => <>
-    <td>{item.key}</td>
-    <td>{item.type}</td>
-</>
+const row = (item) => {
+
+    let icon
+    switch (item.typeKey.toLowerCase()) {
+        case 'boolean':
+            icon = ToggleOffIcon
+            break;
+        default:
+            break;
+    }
+    
+    return <>
+
+        <td superAdmin>{item.key}</td>
+        <td>
+            <ValueWithTitle
+                value={item.name}
+                title={item.description}
+            />
+        </td>
+        <td>
+            {
+                icon
+                ?
+                <HolismIcon icon={icon} />
+                :
+                item.typeKey
+            }
+        </td>
+    </>
+}
 
 const ConfigItems = ({ isSuperAdmin }) => {
     return <List

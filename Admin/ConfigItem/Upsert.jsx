@@ -1,18 +1,25 @@
 import {
     DialogForm,
-    Key,
     Enum,
+    Key,
+    LongText,
+    Text,
 } from '@Form'
 
 const inputs = <>
-    <Key
+    <Key />
+    <Text
         column='Name'
+        required='Please provide the name'
     />
     <Enum
         column='ConfigTypeId'
         placeholder='Type'
         entityType='ConfigType'
         required='Please specify the type of this configuration item'
+    />
+    <LongText
+        column='Description'
     />
 </>
 
