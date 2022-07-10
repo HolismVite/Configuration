@@ -24,10 +24,10 @@ const BrowserDialog = () => {
     />
 }
 
-const ConfigItemBrowser = ({ column }) => {
+const ConfigItemBrowser = () => {
     return <BrowseInput
-        column={column || 'ConfigItemId'}
-        browser={ConfigItemBrowser}
+        column={'ConfigItemId'}
+        browser={BrowserDialog}
         placeholder='Config item'
         display={(item) => item.name}
         choose={(item) => item.id}
