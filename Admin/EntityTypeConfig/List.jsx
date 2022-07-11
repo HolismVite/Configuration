@@ -42,8 +42,8 @@ const row = (entity) => {
 const EntityTypeConfigs = ({ isSuperAdmin }) => {
 
     return <List
-        title="System Configs"
-        entityType='systemConfig'
+        title="Entity Type Configs"
+        entityType='EntityTypeConfig'
         filters={filters}
         headers={headers}
         row={row}
