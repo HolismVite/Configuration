@@ -15,12 +15,14 @@ const filters = <>
 </>
 
 const headers = <>
+    <th>Entity Type</th>
     <th>Name</th>
     <th>Type</th>
 </>
 
 const row = (entity) => {
     return <>
+        <td>{entity.entityTypeName}</td>
         <td>{entity.configItemName}</td>
         <td>
             <ConfigTypeIcon
@@ -33,8 +35,8 @@ const row = (entity) => {
 const EntityConfigItems = ({ isSuperAdmin }) => {
 
     return <List
-        title="Entity Type Configs"
-        entityType='EntityTypeConfig'
+        title="Entity Config Items"
+        entityType='EntityConfigItem'
         filters={filters}
         headers={headers}
         row={row}
