@@ -8,6 +8,7 @@ import WorkspacesIcon from '@mui/icons-material/Workspaces';
 import {
     BooleanProperty,
     Color,
+    NumberProperty,
 } from '@List';
 import {
     DialogContext,
@@ -43,6 +44,9 @@ const useConfig = () => {
         entityType,
         type,
     }) => {
+
+        const getUrl = (value) => `/${entityType}/setValue?id=${entity.id}&value=${value}`
+
         const [open, setOpen] = useState(false)
         switch (type) {
             case enums.configType.text:
@@ -50,49 +54,22 @@ const useConfig = () => {
             case enums.configType.naturalNumber:
             case enums.configType.integer:
             case enums.configType.realNumber:
-                return <>
-                    <span
-                        className="cursor-pointer"
-                        title='Click to change'
-                        onClick={() => setOpen(true)}
-                    >
-                        <span>{entity.currentValue || 'NA'}</span>
-                    </span>
-                    <DialogContext.Provider
-                        value={{
-                            open,
-                            setOpen,
-                        }}
-                    >
-                        <DialogForm
-                            title='Edit'
-                            inputs={<Numeric 
-                                column='Value'
-                            />}
-                            okAction={({
-                                data,
-                                error,
-                                setProgress,
-                                success,
-                            }) => {
-                                console.log(data)
-                            }}
-                        />
-
-                    </DialogContext.Provider>
-                </>
+                return <NumberProperty
+                    value={entity.currentValue}
+                    actionUrl={getUrl}
+                />
             case enums.configType.boolean:
             case enums.configType.nullableBoolean:
                 return <BooleanProperty
                     column='currentValue'
                     value={entity.currentValue === true.toString() ? true : false}
-                    actionUrl={(value) => `/${entityType}/setValue?id=${entity.id}&value=${value}`}
+                    actionUrl={getUrl}
                 />
             case enums.configType.color:
                 return <Color
                     column='currentValue'
                     value={entity.currentValue || "000"}
-                    action={(value) => `/${entityType}/setValue?id=${entity.id}&value=${value}`}
+                    action={getUrl}
                 />
             case enums.configType.singleChoice:
                 return null
