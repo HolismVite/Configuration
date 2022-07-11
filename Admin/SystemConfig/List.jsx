@@ -1,12 +1,11 @@
 import {
     List,
     Text,
-    BooleanProperty,
-    Color,
 } from '@List';
 import UpsertSystemConfig from './Upsert';
 import ConfigType from '../ConfigType/Filter';
 import ConfigTypeIcon from '../ConfigType/Icon';
+import ConfigProperty from '../ConfigType/Property';
 
 const filters = <>
     <Text
@@ -22,56 +21,20 @@ const headers = <>
     <th>Value</th>
 </>
 
-const value = (item) => {
-    switch (item.typeKey) {
-        case 'Text':
-            break;
-        case 'Integer':
-            break;
-        case 'PositiveInteger':
-            break;
-        case 'Decimal':
-            break;
-        case 'Boolean':
-            return <BooleanProperty
-                column='currentValue'
-                value={item.currentValue === true.toString() ? true : false}
-                actionUrl={(value) => `/systemConfig/setValue?id=${item.id}&value=${value}`}
-            />
-            break;
-        case 'NullableBoolean':
-            break;
-        case 'Color':
-            return <Color
-                column='currentValue'
-                value={item.currentValue || "000"}
-                action={(value) => `/systemConfig/setValue?id=${item.id}&value=${value}`}
-            />
-            break;
-        case 'SingleChoice':
-            break;
-        case 'MultipleChoice':
-            break;
-        default:
-            break;
-    }
-}
-
 const row = (item) => {
     return <>
         <td>{item.configItemName}</td>
         <td>
-            <ConfigTypeIcon type={item.typeKey} />
+            <ConfigTypeIcon type={item.configTypeId} />
         </td>
         <td>
-            {
-                value(item)
-            }
+            <ConfigProperty />
         </td>
     </>
 }
 
 const SystemConfigs = ({ isSuperAdmin }) => {
+
     return <List
         title="System Configs"
         entityType='systemConfig'

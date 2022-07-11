@@ -38,7 +38,7 @@ const row = (item) => {
             />
         </td>
         <td>
-            <ConfigTypeIcon type={item.typeKey} />
+            <ConfigTypeIcon type={item.configTypeId} />
         </td>
     </>
 }
