@@ -35,8 +35,8 @@ const value = (item) => {
         case 'Boolean':
             return <BooleanProperty
                 column='currentValue'
-                value={item.currentValue || false}
-                action={(value) => `/systemConfig/setValue?id=${item.id}&value=${value}`}
+                value={item.currentValue === true.toString() ? true : false}
+                actionUrl={(value) => `/systemConfig/setValue?id=${item.id}&value=${value}`}
             />
             break;
         case 'NullableBoolean':
@@ -80,7 +80,7 @@ const SystemConfigs = ({ isSuperAdmin }) => {
         row={row}
         create={isSuperAdmin && UpsertSystemConfig}
         hasDelete={isSuperAdmin}
-        hasEdit={true}
+    // hasEdit={true}
     />
 }
 

@@ -1,5 +1,6 @@
 import { Browse as BrowseInput } from '@Form';
 import { Browse } from '@Browse';
+import ConfigItemIcon from '../ConfigType/Icon'
 
 const headers = <>
     <th superAdmin>Key</th>
@@ -8,7 +9,11 @@ const headers = <>
 </>
 
 const row = (item) => <>
+    <td superAdmin>{item.key}</td>
     <td>{item.name}</td>
+    <td>
+        <ConfigItemIcon type={item.typeKey} />
+    </td>
 </>
 
 const BrowserDialog = () => {

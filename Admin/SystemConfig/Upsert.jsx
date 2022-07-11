@@ -17,7 +17,7 @@ const UpsertSystemConfig = () => {
     const [configType, setConfigType] = useState()
 
     const getConfigType = ({ getFieldValue }) => {
-        setSelected
+        // setConfigType(getFieldValue())
     }
 
     return <DialogForm
