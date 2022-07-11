@@ -6,6 +6,7 @@ import {
 } from '@List';
 import UpsertSystemConfig from './Upsert';
 import ConfigType from '../ConfigType/Filter';
+import ConfigTypeIcon from '../ConfigType/Icon';
 
 const filters = <>
     <Text
@@ -59,7 +60,9 @@ const value = (item) => {
 const row = (item) => {
     return <>
         <td>{item.configItemName}</td>
-        <td>{item.typeKey}</td>
+        <td>
+            <ConfigTypeIcon type={item.typeKey} />
+        </td>
         <td>
             {
                 value(item)
