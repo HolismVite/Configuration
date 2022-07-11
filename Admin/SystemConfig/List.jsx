@@ -21,14 +21,20 @@ const headers = <>
     <th>Value</th>
 </>
 
-const row = (item) => {
+const row = (entity) => {
     return <>
-        <td>{item.configItemName}</td>
+        <td>{entity.configItemName}</td>
         <td>
-            <ConfigTypeIcon type={item.configTypeId} />
+            <ConfigTypeIcon
+                type={entity.configTypeId}
+            />
         </td>
         <td>
-            <ConfigProperty />
+            <ConfigProperty
+                type={entity.configTypeId}
+                entity={entity}
+                entityType='SystemConfig'
+            />
         </td>
     </>
 }
