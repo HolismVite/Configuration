@@ -54,4 +54,3 @@ const SystemConfigs = ({ isSuperAdmin }) => {
 }
 
 export default SystemConfigs;
-export { SystemConfigs }

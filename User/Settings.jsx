@@ -72,4 +72,3 @@ const Settings = () => {
 }
 
 export default Settings;
-export { Settings }
