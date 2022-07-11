@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import ToggleOffIcon from '@mui/icons-material/ToggleOff';
-import NumbersIcon from '@mui/icons-material/Numbers';
 import AbcIcon from '@mui/icons-material/Abc';
-import ColorLensIcon from '@mui/icons-material/ColorLens';
 import CircleIcon from '@mui/icons-material/Circle';
+import ColorLensIcon from '@mui/icons-material/ColorLens';
+import NumbersIcon from '@mui/icons-material/Numbers';
+import PercentIcon from '@mui/icons-material/Percent';
+import ToggleOffIcon from '@mui/icons-material/ToggleOff';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
 import {
     BooleanProperty,
@@ -34,6 +35,8 @@ const useConfig = () => {
                 return CircleIcon
             case enums.configType.multipleChoice:
                 return WorkspacesIcon
+            case enums.configType.percent:
+                return PercentIcon
             default:
                 return null
         }
@@ -74,6 +77,8 @@ const useConfig = () => {
             case enums.configType.singleChoice:
                 return null
             case enums.configType.multipleChoice:
+                return null
+            case enums.configType.percent:
                 return null
             default:
                 return null
