@@ -1,24 +1,15 @@
-// import EntityBrowser from 'Entities'
-// import ConfigItemBrowser from '../ConfigItem/Browser'
-
-import {
-    DialogForm,
-    Text,
-    Browse,
-} from '@Form'
+import { DialogForm } from '@Form';
+import ConfigItemBrowser from '../ConfigItem/Browser';
 
 const inputs = <>
-    {/* <Browse
-        browser={EntityBrowser}
-    />
-    <Browse
-        browser={ConfigItemBrowser}
-    /> */}
+    <ConfigItemBrowser />
 </>
 
 const UpsertEntityConfigItem = () => {
+
     return <DialogForm
-        entityType='EntityConfigItem'
+        entityType='EntityTypeConfig'
+        humanReadableEntityType='Entity Type Config'
         inputs={inputs}
     />
 }

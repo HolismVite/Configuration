@@ -1,41 +1,46 @@
 import {
     List,
-    Browse,
-    Text
-} from '@List'
-import UpsertEntityConfigItem from './Upsert'
+    Text,
+} from '@List';
+import UpsertEntityConfigItem from './Upsert';
+import ConfigType from '../ConfigType/Filter';
+import ConfigTypeIcon from '../ConfigType/Icon';
 
 const filters = <>
-    {/* <Browse
-    /> */}
     <Text
-        column='Something'
+        column='ConfigItemName'
+        placeholder='Config name'
     />
+    <ConfigType />
 </>
 
 const headers = <>
-    <th>Entity Type</th>
-    <th>Key</th>
+    <th>Name</th>
     <th>Type</th>
 </>
 
-const row = (item) => <>
-    <td>{item.entityType}</td>
-    <td>{item.key}</td>
-    <td>{item.type}</td>
-</>
+const row = (entity) => {
+    return <>
+        <td>{entity.configItemName}</td>
+        <td>
+            <ConfigTypeIcon
+                type={entity.configTypeId}
+            />
+        </td>
+    </>
+}
 
 const EntityConfigItems = ({ isSuperAdmin }) => {
+
     return <List
-        title='Entity Config Items'
-        entityType='EntityConfigItem'
+        title="Entity Type Configs"
+        entityType='EntityTypeConfig'
         filters={filters}
         headers={headers}
         row={row}
-        hasDelete={isSuperAdmin}
-        hasEdit={isSuperAdmin}
         create={isSuperAdmin && UpsertEntityConfigItem}
+        hasDelete={isSuperAdmin}
     />
 }
 
-export default EntityConfigItems
+export default EntityConfigItems;
