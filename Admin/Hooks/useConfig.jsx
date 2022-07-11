@@ -11,31 +11,26 @@ import {
     Color,
     NumberProperty,
 } from '@List';
-import {
-    DialogContext,
-    DialogForm,
-    Numeric,
-} from '@Form'
 
 const useConfig = () => {
     const getIcon = (type) => {
         switch (type) {
-            case enums.configType.text:
+            case enums?.configType?.text:
                 return AbcIcon
-            case enums.configType.naturalNumber:
-            case enums.configType.integer:
-            case enums.configType.realNumber:
+            case enums?.configType?.naturalNumber:
+            case enums?.configType?.integer:
+            case enums?.configType?.realNumber:
                 return NumbersIcon
-            case enums.configType.boolean:
-            case enums.configType.nullableBoolean:
+            case enums?.configType?.boolean:
+            case enums?.configType?.nullableBoolean:
                 return ToggleOffIcon
-            case enums.configType.color:
+            case enums?.configType?.color:
                 return ColorLensIcon
-            case enums.configType.singleChoice:
+            case enums?.configType?.singleChoice:
                 return CircleIcon
-            case enums.configType.multipleChoice:
+            case enums?.configType?.multipleChoice:
                 return WorkspacesIcon
-            case enums.configType.percent:
+            case enums?.configType?.percent:
                 return PercentIcon
             default:
                 return null
@@ -52,33 +47,33 @@ const useConfig = () => {
 
         const [open, setOpen] = useState(false)
         switch (type) {
-            case enums.configType.text:
+            case enums?.configType?.text:
                 return null
-            case enums.configType.naturalNumber:
-            case enums.configType.integer:
-            case enums.configType.realNumber:
+            case enums?.configType?.naturalNumber:
+            case enums?.configType?.integer:
+            case enums?.configType?.realNumber:
                 return <NumberProperty
                     value={entity.currentValue}
                     actionUrl={getUrl}
                 />
-            case enums.configType.boolean:
-            case enums.configType.nullableBoolean:
+            case enums?.configType?.boolean:
+            case enums?.configType?.nullableBoolean:
                 return <BooleanProperty
                     column='currentValue'
                     value={entity.currentValue === true.toString() ? true : false}
                     actionUrl={getUrl}
                 />
-            case enums.configType.color:
+            case enums?.configType?.color:
                 return <Color
                     column='currentValue'
                     value={entity.currentValue || "000"}
                     action={getUrl}
                 />
-            case enums.configType.singleChoice:
+            case enums?.configType?.singleChoice:
                 return null
-            case enums.configType.multipleChoice:
+            case enums?.configType?.multipleChoice:
                 return null
-            case enums.configType.percent:
+            case enums?.configType?.percent:
                 return null
             default:
                 return null

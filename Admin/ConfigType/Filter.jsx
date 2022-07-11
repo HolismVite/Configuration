@@ -3,7 +3,7 @@ import { Enum } from '@List'
 const ConfigType = () => {
     return <Enum
         column='ConfigTypeId'
-        placeholder='Type'
+        placeholder='Config Type'
         entityType='ConfigType'
     />
 }

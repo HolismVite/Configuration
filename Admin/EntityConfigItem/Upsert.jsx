@@ -1,9 +1,9 @@
 import { DialogForm } from '@Form';
-import { EntityTypeBrowser } from 'Entities'
+import { EntityTypeBrowserField } from 'Entities'
 import ConfigItemBrowser from '../ConfigItem/Browser';
 
 const inputs = <>
-    <EntityTypeBrowser />
+    <EntityTypeBrowserField />
     <ConfigItemBrowser />
 </>
 

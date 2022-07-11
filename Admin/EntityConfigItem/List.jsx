@@ -2,16 +2,18 @@ import {
     List,
     Text,
 } from '@List';
+import { EntityTypeBrowserFilter } from 'Entities'
 import UpsertEntityConfigItem from './Upsert';
 import ConfigType from '../ConfigType/Filter';
 import ConfigTypeIcon from '../ConfigType/Icon';
 
 const filters = <>
+    <EntityTypeBrowserFilter />
+    <ConfigType />
     <Text
         column='ConfigItemName'
         placeholder='Config name'
     />
-    <ConfigType />
 </>
 
 const headers = <>
