@@ -1,5 +1,5 @@
-import { Browse as BrowseInput } from '@Form';
-import { Browse } from '@Browse';
+import { Browse } from '@Form';
+import { List } from '@Browse';
 import ConfigItemIcon from '../ConfigType/Icon'
 
 const headers = <>
@@ -16,8 +16,8 @@ const row = (item) => <>
     </td>
 </>
 
-const BrowserDialog = () => {
-    return <Browse
+const list = () => {
+    return <List
         entityType='ConfigItem'
         headers={headers}
         row={row}
@@ -25,9 +25,9 @@ const BrowserDialog = () => {
 }
 
 const ConfigItemBrowser = () => {
-    return <BrowseInput
+    return <Browse
         column={'ConfigItemId'}
-        browser={BrowserDialog}
+        list={list}
         placeholder='Config item'
         show={(item) => item.name}
         choose={(item) => item.id}

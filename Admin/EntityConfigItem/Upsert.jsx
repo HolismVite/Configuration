@@ -1,10 +1,10 @@
 import { DialogForm } from '@Form';
-import { EntityTypeBrowserField } from 'Entities'
-import ConfigItemBrowser from '../ConfigItem/Browser';
+import { EntityTypeField } from 'Entities'
+import ConfigItem from '../ConfigItem/Browser';
 
 const inputs = <>
-    <EntityTypeBrowserField />
-    <ConfigItemBrowser />
+    <EntityTypeField />
+    <ConfigItem />
 </>
 
 const UpsertEntityConfigItem = () => {
