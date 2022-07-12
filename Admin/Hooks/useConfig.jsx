@@ -6,6 +6,7 @@ import NumbersIcon from '@mui/icons-material/Numbers';
 import PercentIcon from '@mui/icons-material/Percent';
 import ToggleOffIcon from '@mui/icons-material/ToggleOff';
 import WorkspacesIcon from '@mui/icons-material/Workspaces';
+import app from 'App'
 import {
     BooleanProperty,
     Color,
@@ -43,7 +44,7 @@ const useConfig = () => {
         type,
     }) => {
 
-        const getUrl = (value) => `/${entityType}/setValue?id=${entity.id}&value=${value}`
+        const getUrl = (value) => `/${app.camelize(entityType)}/setValue?id=${entity.id}&value=${value}`
 
         const [open, setOpen] = useState(false)
         switch (type) {
