@@ -1,5 +1,4 @@
 import { Browse } from '@Form';
-import { List } from '@Browse';
 import ConfigItemIcon from '../ConfigType/Icon'
 
 const headers = <>
@@ -16,18 +15,12 @@ const row = (item) => <>
     </td>
 </>
 
-const list = () => {
-    return <List
-        entityType='ConfigItem'
-        headers={headers}
-        row={row}
-    />
-}
-
 const ConfigItemBrowser = () => {
     return <Browse
         column={'ConfigItemId'}
-        list={list}
+        entityType='ConfigItem'
+        headers={headers}
+        row={row}
         placeholder='Config item'
         show={(item) => item.name}
         choose={(item) => item.id}
