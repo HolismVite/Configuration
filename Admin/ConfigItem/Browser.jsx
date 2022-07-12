@@ -29,7 +29,7 @@ const ConfigItemBrowser = () => {
         column={'ConfigItemId'}
         browser={BrowserDialog}
         placeholder='Config item'
-        display={(item) => item.name}
+        show={(item) => item.name}
         choose={(item) => item.id}
         required='You should choose configuration item'
     />
