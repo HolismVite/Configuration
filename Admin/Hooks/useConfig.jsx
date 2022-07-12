@@ -15,6 +15,9 @@ import {
 
 const useConfig = () => {
     const getIcon = (type) => {
+        if (!enums) {
+            return null
+        }
         switch (type) {
             case enums?.configType?.text:
                 return AbcIcon
@@ -44,6 +47,9 @@ const useConfig = () => {
         type,
     }) => {
 
+        if (!enums) {
+            return null
+        }
         const getUrl = (value) => `/${app.camelize(entityType)}/setValue?id=${entity.id}&value=${value}`
 
         const [open, setOpen] = useState(false)
