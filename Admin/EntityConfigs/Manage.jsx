@@ -6,6 +6,7 @@ import {
 } from '@Form'
 
 const ManageEntityConfigs = ({
+    entityType,
     entityGuid
 }) => {
 
@@ -16,7 +17,7 @@ const ManageEntityConfigs = ({
         setProgress,
     }) => {
         setProgress(true)
-        get(`/entityConfig/getConfigs?entityGuid=${entityGuid}`)
+        get(`/entityConfig/getConfigs?entityType=${entityType}&entityGuid=${entityGuid}`)
             .then(data => {
                 setData(data)
                 setProgress(false)
