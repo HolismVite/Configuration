@@ -1,15 +1,29 @@
 import { useState } from 'react'
-import { DialogForm, Text } from '@Form'
+import {
+    DialogForm,
+    get,
+    Text,
+} from '@Form'
 
 const ManageEntityConfigs = ({
     entityGuid
 }) => {
 
-    const load = ({ setProgress }) => {
+    const [data, setData] = useState([])
+
+    const load = ({
+        error,
+        setProgress,
+    }) => {
         setProgress(true)
-        setTimeout(() => {
-            setProgress(false)
-        }, 2000)
+        get(`/entityConfig/getConfigs?entityGuid=${entityGuid}`)
+            .then(data => {
+                setData(data)
+                setProgress(false)
+            }, e => {
+                setProgress(false)
+                error(e)
+            })
     }
 
     const inputs = <>
