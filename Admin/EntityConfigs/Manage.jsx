@@ -1,11 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { DialogForm, Text } from '@Form'
 
 const ManageEntityConfigs = ({
     entityGuid
 }) => {
 
-    const [progress, setProgress] = useState(true)
+    const load = ({ setProgress }) => {
+        setProgress(true)
+        setTimeout(() => {
+            setProgress(false)
+        }, 2000)
+    }
 
     const inputs = <>
         <Text
@@ -16,7 +21,7 @@ const ManageEntityConfigs = ({
 
     return <DialogForm
         title='Entity Configs'
-        progress={progress}
+        onLoad={load}
         inputs={inputs}
     />
 }
