@@ -25,12 +25,20 @@ const ManageEntityConfigs = () => {
 
     const load = ({
         error,
+        setCurrentEntity,
         setProgress,
     }) => {
         setProgress(true)
         get(`/entityConfig/getConfigs?entityType=${entityType}&entityGuid=${entityGuid}`)
             .then(data => {
                 setData(data)
+
+                var asEntity = {}
+                data.map(i => {
+                    asEntity[i.configItemId] = i.currentValue
+                })
+                console.log(asEntity)
+                setCurrentEntity(asEntity)
                 setProgress(false)
             }, e => {
                 setProgress(false)
