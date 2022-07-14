@@ -35,7 +35,7 @@ const ManageEntityConfigs = () => {
 
                 var asEntity = {}
                 data.map(i => {
-                    asEntity[i.configItemId] = i.currentValue
+                    asEntity[i.configItemId] = getValue(i)
                 })
                 console.log(asEntity)
                 setCurrentEntity(asEntity)
@@ -44,6 +44,28 @@ const ManageEntityConfigs = () => {
                 setProgress(false)
                 error(e)
             })
+    }
+
+    const getValue = (entity) => {
+        switch (entity.configTypeId) {
+            case enums?.configType?.naturalNumber:
+            case enums?.configType?.integer:
+                return Number.partInt(entity.currentValue)
+                case enums?.configType?.realNumber:
+                return Number.parseFloat(entity.currentValue)
+            case enums?.configType?.boolean:
+            case enums?.configType?.nullableBoolean:
+                return entity.currentValue === 'True'
+            case enums?.configType?.color:
+                return entity.currentValue
+            case enums?.configType?.singleChoice:
+            case enums?.configType?.multipleChoice:
+                return Number.parseInt(entity.currentValue)
+            case enums?.configType?.percent:
+                return null
+            default:
+                return entity.currentValue
+        }
     }
 
     const getField = (entity) => {
@@ -63,6 +85,7 @@ const ManageEntityConfigs = () => {
             case enums?.configType?.nullableBoolean:
                 return <Check
                     column={entity.configItemId}
+                    placeholder={entity.configItemName}
                 />
             case enums?.configType?.color:
                 return <Color
