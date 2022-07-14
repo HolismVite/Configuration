@@ -1,6 +1,6 @@
 import { DialogForm } from '@Form';
 import { EntityTypeField } from 'Entities'
-import ConfigItem from '../ConfigItem/Browser';
+import ConfigItem from '../ConfigItem/Field';
 
 const inputs = <>
     <EntityTypeField />

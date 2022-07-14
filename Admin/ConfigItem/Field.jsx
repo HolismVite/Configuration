@@ -1,5 +1,17 @@
 import { Browse } from '@Form';
+import { Text } from '@List'
+import ConfigType from '../ConfigType/Filter'
 import ConfigItemIcon from '../ConfigType/Icon'
+
+const filters = <>
+    <Text
+        column="Key"
+    />
+    <Text
+        column="Name"
+    />
+    <ConfigType />
+</>
 
 const headers = <>
     <th superAdmin>Key</th>
@@ -11,14 +23,15 @@ const row = (item) => <>
     <td superAdmin>{item.key}</td>
     <td>{item.name}</td>
     <td>
-        <ConfigItemIcon type={item.typeKey} />
+        <ConfigItemIcon type={item.configTypeId} />
     </td>
 </>
 
-const ConfigItemBrowser = () => {
+const ConfigItemField = () => {
     return <Browse
         column={'ConfigItemId'}
         entityType='ConfigItem'
+        filters={filters}
         headers={headers}
         row={row}
         placeholder='Config item'
@@ -28,4 +41,4 @@ const ConfigItemBrowser = () => {
     />
 }
 
-export default ConfigItemBrowser
+export default ConfigItemField

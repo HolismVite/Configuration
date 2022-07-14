@@ -3,10 +3,10 @@ import {
     DialogForm,
     Text,
 } from '@Form';
-import ConfigItemBrowser from '../ConfigItem/Browser';
+import ConfigItem from '../ConfigItem/Field';
 
 const inputs = <>
-    <ConfigItemBrowser />
+    <ConfigItem />
     <Text
         column='Value'
     />
