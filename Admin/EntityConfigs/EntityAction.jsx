@@ -1,12 +1,15 @@
 import SettingsIcon from '@mui/icons-material/Settings';
 import { EntityAction } from '@List'
-import ManageEntityConfigs from './Manage';
 
-const EntityConfigsAction = (props) => <EntityAction
-    {...props}
+const EntityConfigsAction = ({
+    entityType,
+    entityGuid,
+    ...rest
+}) => <EntityAction
+    {...rest}
     title='Configure Items'
     icon={SettingsIcon}
-    dialog={ManageEntityConfigs}
+    goTo={`/entityConfig?entityType=${entityType}&entityGuid=${entityGuid}`}
 />
 
 export default EntityConfigsAction

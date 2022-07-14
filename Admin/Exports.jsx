@@ -23,12 +23,16 @@ const ConfigurationRoutes = [
         component: EntityTypeConfigs
     },
     {
+        path: "/entityConfigItems",
+        component: EntityConfigItems
+    },
+    {
         path: "/entityConfigs",
         component: EntityConfigs
     },
     {
-        path: "/entityConfigItems",
-        component: EntityConfigItems
+        path: '/entityConfig',
+        component: ManageEntityConfigs
     },
     {
         path: "/settings",

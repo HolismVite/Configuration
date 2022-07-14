@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import {
+    app,
     Check,
     Color,
-    DialogForm,
+    PageForm,
     get,
     Numeric,
     Select,
@@ -10,10 +11,12 @@ import {
 } from '@Form'
 import { useEnum } from 'Hooks'
 
-const ManageEntityConfigs = ({
-    entityType,
-    entityGuid
-}) => {
+const ManageEntityConfigs = () => {
+
+    const {
+        entityType,
+        entityGuid
+    } = app.parseQuery()
 
     const [data, setData] = useState([])
 
@@ -74,7 +77,7 @@ const ManageEntityConfigs = ({
         }
     </>
 
-    return <DialogForm
+    return <PageForm
         title='Entity Configs'
         onLoad={load}
         inputs={inputs}
