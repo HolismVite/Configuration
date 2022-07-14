@@ -3,9 +3,10 @@ import {
     app,
     Check,
     Color,
-    PageForm,
     get,
     Numeric,
+    PageForm,
+    post,
     Select,
     Text,
 } from '@Form'
@@ -80,6 +81,7 @@ const ManageEntityConfigs = () => {
     return <PageForm
         title='Entity Configs'
         onLoad={load}
+        submitTo='/entityConfig/save'
         inputs={inputs}
     />
 }
