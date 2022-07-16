@@ -16,6 +16,14 @@ const filters = <>
     />
 </>
 
+const sorts = [
+    {
+        "caption": "Specified order",
+        "column": "Order",
+        "direction": "asc"
+    }
+]
+
 const headers = <>
     <th>Entity Type</th>
     <th>Name</th>
@@ -40,6 +48,7 @@ const EntityConfigItems = ({ isSuperAdmin }) => {
         title="Entity Config Items"
         entityType='EntityConfigItem'
         filters={filters}
+        sorts={sorts}
         headers={headers}
         row={row}
         create={isSuperAdmin && UpsertEntityConfigItem}
